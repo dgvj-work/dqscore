@@ -4,13 +4,22 @@
 > expectations with a fluent schema, or run a zero-config scan. No heavy dependencies,
 > no config files required.
 
-[![CI](https://github.com/YOUR_USERNAME/dqscore/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/dqscore/actions/workflows/ci.yml)
+[![CI](https://github.com/dgvj-work/dqscore/actions/workflows/ci.yml/badge.svg)](https://github.com/dgvj-work/dqscore/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 `dqscore` helps you catch the boring-but-costly data problems — nulls where there
 shouldn't be any, duplicate keys, out-of-range values, malformed strings — before
 they reach a model, a dashboard, or a stakeholder.
+
+---
+## Why this exists ?
+Data quality issues are the silent killers of analytics and ML work. A null in the wrong column, a duplicate primary key, a value outside its expected range — these don't crash your pipeline. They quietly corrupt your output, and you find out three weeks later in a stakeholder meeting.
+The Python ecosystem already has excellent tools for this. Great Expectations is comprehensive and battle-tested. Pandera offers powerful schema-based validation. ydata-profiling produces rich exploratory reports. If you're building a long-lived production data platform, those are the right answers.
+But there's a gap in shape. When an analyst gets a fresh CSV and wants a fast read on whether it's trustworthy, the existing tools ask for a lot upfront — a schema, a config, a project structure, sometimes a framework integration. The lightest possible question — is this data OK? — doesn't have a one-line answer in any of them. And once you do set up checks, getting a single number you can put on a dashboard, or a non-zero exit code you can wire into CI, often needs custom code on top.
+dqscore is built for that middle ground. It has one dependency (pandas) and three things to learn: profile a DataFrame, declare a schema with a fluent API, or run a zero-config scan that infers sensible defaults. Every validation produces a 0–100 quality score and a report that exports to HTML, Markdown, or JSON. The CLI returns exit code 1 on failure, so dqscore scan data.csv drops straight into a CI pipeline or a pre-commit hook with no glue code.
+It's not a replacement for Great Expectations or pandera. It's the tool you reach for at the start of a project, or when reviewing a new dataset, or when you want a simple quality gate in CI without standing up a whole framework. That's the gap, and I think it's a useful one to fill — especially for individuals, smaller teams, and educators where the ceremony of heavier tools is the actual barrier to checking data at all.
+The package is MIT-licensed and feedback is welcome. If a check is missing, a report format would be useful, or the auto-scan heuristics could be smarter for your data, open an issue.
 
 ---
 
@@ -34,7 +43,7 @@ pip install dqscore
 Or install the latest from source:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dqscore.git
+git clone https://github.com/dgvj-work/dqscore.git
 cd dqscore
 pip install -e ".[dev]"
 ```
@@ -138,7 +147,7 @@ A `ValidationResult` gives you:
 ## Contributing
 
 Contributions and feedback are very welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
-Found a bug or want a new check? [Open an issue](https://github.com/YOUR_USERNAME/dqscore/issues).
+Found a bug or want a new check? [Open an issue](https://github.com/dgvj-work/dqscore/issues).
 
 ## License
 
