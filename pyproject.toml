@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dqscore"
+version = "0.1.0"
+description = "A lightweight data quality toolkit for pandas: profiling, validation schemas, and a zero-config scan."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "YOUR NAME", email = "you@example.com" }]
+keywords = ["data-quality", "pandas", "validation", "data-profiling", "etl", "dataframe"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = ["pandas>=1.3"]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/dqscore"
+Repository = "https://github.com/YOUR_USERNAME/dqscore"
+Issues = "https://github.com/YOUR_USERNAME/dqscore/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov"]
+
+[project.scripts]
+dqscore = "dqscore.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dqscore = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
