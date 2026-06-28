@@ -9,7 +9,7 @@ description = "A lightweight data quality toolkit for pandas: profiling, validat
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
-authors = [{ name = "YOUR NAME", email = "you@example.com" }]
+authors = [{ name = "Digvijay Waghela", email = "digvijay.vaghela@yahoo.com" }]
 keywords = ["data-quality", "pandas", "validation", "data-profiling", "etl", "dataframe"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -27,9 +27,9 @@ classifiers = [
 dependencies = ["pandas>=1.3"]
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USERNAME/dqscore"
-Repository = "https://github.com/YOUR_USERNAME/dqscore"
-Issues = "https://github.com/YOUR_USERNAME/dqscore/issues"
+Homepage = "https://github.com/dgvj-work/dqscore"
+Repository = "https://github.com/dgvj-work/dqscore"
+Issues = "https://github.com/dgvj-work/dqscore/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0", "pytest-cov"]
